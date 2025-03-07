@@ -10,6 +10,7 @@ To add changes to your branch:
     1. git add .
     2. git commit -m "<message detailing changes>"
     3. git push
+(To know what branch ur in: git branch)
 
 To merge your branch into main:
     1. Go to the repository on GitHub and go to the "Pull requests" tab
