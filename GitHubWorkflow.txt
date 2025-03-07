@@ -1,6 +1,8 @@
 Before working: git pull origin main
 
 Checkout a branch: git checkout -b <your name>
+* if branch already exists: git checkout [branch name]
+* branch name will just be your name
 
 Work locally
 
