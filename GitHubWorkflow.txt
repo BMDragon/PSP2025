@@ -15,3 +15,5 @@ To merge your branch into main:
     1. Go to the repository on GitHub and go to the "Pull requests" tab
     2. Click the green button "New pull request"
     3. Resolve merge conflicts and pull into main
+
+Hi my name is jeremy
