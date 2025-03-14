@@ -35,7 +35,6 @@ plt.bar(dict_in.keys(), dict_in.values())
 plt.title("Incoming Particles")
 plt.xlabel("Type of Particle (PDG)")
 plt.ylabel("Number of Particles")
-plt.show()
 plt.savefig("plt_in.png")
 
 
@@ -44,7 +43,6 @@ plt.bar(dict_out.keys(), dict_out.values())
 plt.title("Outgoing Particles")
 plt.xlabel("Type of Particle (PDG)")
 plt.ylabel("Number of Particles")
-plt.show()
 plt.savefig("plt_out.png")
 
  
