@@ -14,14 +14,14 @@ while line:
 	nf = int(line[1])
 	for x in range(ni):
 		data = file.readline().split()
-		PDG = int(data[0])
+		PDG = data[0]
 		if PDG in dict_in:
 			dict_in[PDG] = dict_in[PDG] + 1
 		else:
 			dict_in[PDG] = 1
 	for x in range(nf):
 		data = file.readline().split()
-		PDG = int(data[0])
+		PDG = data[0]
 		if PDG in dict_out:
 			dict_out[PDG] = dict_out[PDG] + 1
 		else:
@@ -47,7 +47,7 @@ plt.ylabel("Number of Particles")
 plt.show()
 plt.savefig("plt_out.png")
 
-
+ 
 # Analyze the following:
 #     1. Counts of interacting particles (different plots for incoming and outgoing particles)
 #     2. Energy distribution of initial particles, separated by particle type
