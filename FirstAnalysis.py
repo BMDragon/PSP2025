@@ -71,7 +71,7 @@ while line:
 		PDG = data[0]
 		Etot = float(data[1])
 		if PDG in dict_initial:
-			dict_initial[PDG] = dict_initial[PDG].append(Etot)
+			dict_initial[PDG].append(Etot)
 		else:
 			dict_initial[PDG] = [Etot]
 	for x in range(nf):
@@ -79,7 +79,7 @@ while line:
 		PDG = data[0]
 		Etot = float(data[1])
 		if PDG in dict_final:
-			dict_final[PDG] = dict_final[PDG].append(Etot)
+			dict_final[PDG].append(Etot)
 		else:
 			dict_final[PDG] = [Etot]
 	line = file.readline().split()
@@ -88,21 +88,23 @@ while line:
 #symbols_set_out = (dict_symbols[x] for x in dict_final.keys()) #mapping symbols to keys
 #replace x axis below for graphing with this set
 
-for x in range(len(dict_initial)):
-	plt.figure(str(dict_initial.keys()[x]))
+for x in dict_initial.keys():
+	plt.figure()
 	plt.hist(dict_initial[x], bins = 20)
-	plt.title("Initial Energy Distribution of " + str(dict_initial.keys()[x]))
+	plt.title("Initial Energy Distribution of " + str(x))
 	plt.xlabel("Energies (MeV)")
 	plt.ylabel("Number of Particles")
-	plt.savefig(str(dict_initial.keys()[x]) + ".png")
+	plt.savefig("./figures/" + str(x) + "_in.png")
+	plt.close()
 
-for x in range(len(dict_final)):
-	plt.figure(str(dict_final.keys()[x]))
-	plt.hist(dict_final[0], bins = 20)
-	plt.title("Initial Energy Distribution of " + str(dict_final.keys()[x]))
+for x in dict_final.keys():
+	plt.figure()
+	plt.hist(dict_final[x], bins = 20)
+	plt.title("Initial Energy Distribution of " + str(x))
 	plt.xlabel("Energies (MeV)")
 	plt.ylabel("Number of Particles")
-	plt.savefig(str(dict_final.keys()[x]) + ".png")
+	plt.savefig("./figures/" + str(x) + "_final.png")
+	plt.close()
 
 
 
