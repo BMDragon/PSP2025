@@ -31,15 +31,24 @@ while line:
 			dict_out[PDG] = 1
 	line = file.readline().split()	
 
-#dict_symbols = {"11":r"$e^-$", "12":r"$v_e$", 
-#finish mapping values to symbols, $ means math mode, r is for correct formatting
+dict_symbols = {"11":r"$e^-$", "12":r"$v_e$", "13":r"$μ^-$", "14":r"$v_μ$", 
+		"15":r"$τ^-$", "16":r"$v_τ$", "22":r"$γ$", "2112":r"n", "2212":r"p", 
+		"1000010020":r"d", "1000010030":r"t", "1000020030":r"h", 
+		"1000020040":r"$α$", "1000180400":r"$^{40} Ar$", 
+		"1000190400":"$^{40} K$", 
+		"1000170350":"$^{35} Cl$", "1000190390":"$^{39} K$", 
+		"1000180380":r"$^{38} Ar$", "1000170360":r"$^{36} Cl$",
+		"1000180390":r"$^{39} Ar$", "1000160350":r"$^{35} S$",
+		"1000170380":r"$^{38} Cl$", "1000160340":r"$^{34} S$",
+		"1000190380":r"$^{38} K$", "1000180370":r"$^{37} Ar$"}
+#$ means math mode, r is for correct formatting
 
-#x_vals_in = (dict_symbols[x] for x in dict_in.keys()) #mapping symbols to keys
-#x_vals_out = (dict_symbols[x] for x in dict_out.keys()) #mapping symbols to keys
+x_vals_in = list(dict_symbols[x] for x in dict_in.keys()) #mapping symbols to keys
+x_vals_out = list(dict_symbols[x] for x in dict_out.keys()) #mapping symbols to keys
 #sub these in the graphs to replace 'dict_in.keys()' and out for x values
 
 plt.figure("in")
-plt.bar(dict_in.keys(), dict_in.values())
+plt.bar(x_vals_in, dict_in.values())
 plt.title("Incoming Particles")
 plt.xlabel("Type of Particle (PDG)")
 plt.ylabel("Number of Particles")
@@ -47,10 +56,11 @@ plt.savefig("plt_in.png")
 
 
 plt.figure("out")
-plt.bar(dict_out.keys(), dict_out.values())
+plt.bar(x_vals_out, dict_out.values())
 plt.title("Outgoing Particles")
 plt.xlabel("Type of Particle (PDG)")
 plt.ylabel("Number of Particles")
+plt.tick_params(labelsize=6)
 plt.savefig("plt_out.png")
 
  
@@ -84,27 +94,28 @@ while line:
 			dict_final[PDG] = [Etot]
 	line = file.readline().split()
 
-#symbols_set_in = (dict_symbols[x] for x in dict_initial.keys()) #mapping symbols to keys
-#symbols_set_out = (dict_symbols[x] for x in dict_final.keys()) #mapping symbols to keys
+#mapping symbols to keys
+symbols_set_in = list(dict_symbols[x] for x in dict_initial.keys()) 
+symbols_set_out = list(dict_symbols[x] for x in dict_final.keys())
 #replace x axis below for graphing with this set
 
-for x in dict_initial.keys():
-	plt.figure()
-	plt.hist(dict_initial[x], bins = 20)
-	plt.title("Initial Energy Distribution of " + str(x))
+for pdg_code, energies in dict_initial.items():
+	plt.figure("initial"+ pdg_code)
+	plt.hist(energies, bins = 20)
+	symbol = dict_symbols.get(pdg_code)
+	plt.title("Initial Energy Distribution of " + symbol)
 	plt.xlabel("Energies (MeV)")
 	plt.ylabel("Number of Particles")
-	plt.savefig("./figures/" + str(x) + "_in.png")
-	plt.close()
+	plt.savefig("initial_" + pdg_code + ".png")
 
-for x in dict_final.keys():
-	plt.figure()
-	plt.hist(dict_final[x], bins = 20)
-	plt.title("Initial Energy Distribution of " + str(x))
+for pdg_code, energies in dict_final.items():
+	plt.figure("final"+ pdg_code)
+	plt.hist(energies, bins = 20)
+	symbol = dict_symbols.get(pdg_code)
+	plt.title("Final Energy Distribution of " + symbol)
 	plt.xlabel("Energies (MeV)")
 	plt.ylabel("Number of Particles")
-	plt.savefig("./figures/" + str(x) + "_final.png")
-	plt.close()
+	plt.savefig("final_" + pdg_code + ".png")
 
 
 
