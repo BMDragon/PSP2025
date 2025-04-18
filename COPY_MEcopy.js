@@ -34,7 +34,7 @@
     events: 3000,
 
     // Event output configuration
-    output: [ { file: "n_bkgd_test.ascii", format: "ascii", mode: "overwrite" } ], 
+    output: [ { file: "proneutr_star.ascii", format: "ascii", mode: "overwrite" } ], 
 //where to save output file
 
   },
