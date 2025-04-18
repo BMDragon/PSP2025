@@ -4,7 +4,7 @@
   seed: 123456, // Random number seed (omit to use time since Unix epoch)
 
   // Pure 40Ar target
-  target: { 					#determines what's in detector
+  target: { 					//determines what's in detector
     nuclides: [ 1000180400 ],
     atom_fractions: [ 1.0 ],
   },
@@ -34,8 +34,8 @@
     events: 1000,
 
     // Event output configuration
-    output: [ { file: "n_bkgd_test", format: "ascii", mode: "overwrite" } ], 
-#where to save output file
+    output: [ { file: "n_bkgd_test.ascii", format: "ascii", mode: "overwrite" } ], 
+//where to save output file
 
   },
 }
