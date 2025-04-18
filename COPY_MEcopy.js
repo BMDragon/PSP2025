@@ -19,8 +19,8 @@
     neutrino: "ve",       // The source produces electron neutrinos
     Emin: 0,              // Minimum neutrino energy (MeV)
     Emax: 60,             // Maximum neutrino energy (MeV)
-    temperature: 0.000000000168,     // Temperature (MeV)
-    eta: 0                // Pinching parameter (dimensionless, default 0) 
+    temperature: 10,     // Temperature (MeV)
+    eta: 6.5                // Pinching parameter (dimensionless, default 0) 
 	// eta takes a distribution and makes it more peaked if u want it
   },
 
@@ -31,7 +31,7 @@
   executable_settings: {
 
     // The number of events to generate
-    events: 1000,
+    events: 3000,
 
     // Event output configuration
     output: [ { file: "n_bkgd_test.ascii", format: "ascii", mode: "overwrite" } ], 
