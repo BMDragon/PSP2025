@@ -40,7 +40,8 @@ dict_symbols = {"11":r"$e^-$", "12":r"$v_e$", "13":r"$μ^-$", "14":r"$v_μ$",
 		"1000180380":r"$^{38} Ar$", "1000170360":r"$^{36} Cl$",
 		"1000180390":r"$^{39} Ar$", "1000160350":r"$^{35} S$",
 		"1000170380":r"$^{38} Cl$", "1000160340":r"$^{34} S$",
-		"1000190380":r"$^{38} K$", "1000180370":r"$^{37} Ar$"}
+		"1000190380":r"$^{38} K$", "1000180370":r"$^{37} Ar$","1000170370":r"$^{37} Cl$",
+		"1000180360":r"$^{36} Ar$"}
 #$ means math mode, r is for correct formatting
 
 x_vals_in = list(dict_symbols[x] for x in dict_in.keys()) #mapping symbols to keys
@@ -53,6 +54,7 @@ plt.title("Incoming Particles")
 plt.xlabel("Type of Particle (PDG)")
 plt.ylabel("Number of Particles")
 plt.savefig("plt_in.png")
+plt.close("in")
 
 
 plt.figure("out")
@@ -62,6 +64,7 @@ plt.xlabel("Type of Particle (PDG)")
 plt.ylabel("Number of Particles")
 plt.tick_params(labelsize=6)
 plt.savefig("plt_out.png")
+plt.close("out")
 
  
 
@@ -107,6 +110,7 @@ for pdg_code, energies in dict_initial.items():
 	plt.xlabel("Energies (MeV)")
 	plt.ylabel("Number of Particles")
 	plt.savefig("initial_" + pdg_code + ".png")
+	plt.close("initial"+ pdg_code)
 
 for pdg_code, energies in dict_final.items():
 	plt.figure("final"+ pdg_code)
@@ -116,6 +120,7 @@ for pdg_code, energies in dict_final.items():
 	plt.xlabel("Energies (MeV)")
 	plt.ylabel("Number of Particles")
 	plt.savefig("final_" + pdg_code + ".png")
+	plt.close("final"+ pdg_code)
 
 
 
