@@ -18,7 +18,7 @@
     type: "fermi-dirac", // energy of cosmic neutrino bkgd follows shape of fermi-dirac curve
     neutrino: "ve",       // The source produces electron neutrinos
     Emin: 0,              // Minimum neutrino energy (MeV)
-    Emax: 60,             // Maximum neutrino energy (MeV)
+    Emax: 500,             // Maximum neutrino energy (MeV)
     temperature: 10,     // Temperature (MeV)
     eta: 6.5                // Pinching parameter (dimensionless, default 0) 
 	// eta takes a distribution and makes it more peaked if u want it
